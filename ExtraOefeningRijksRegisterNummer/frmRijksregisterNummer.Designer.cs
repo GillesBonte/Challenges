@@ -32,7 +32,7 @@ namespace ExtraOefeningRijksRegisterNummer
             this.components = new System.ComponentModel.Container();
             this.txtRijksregisternummer = new System.Windows.Forms.TextBox();
             this.epRijksregisternummer = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnValidate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.epRijksregisternummer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,21 +49,21 @@ namespace ExtraOefeningRijksRegisterNummer
             // 
             this.epRijksregisternummer.ContainerControl = this;
             // 
-            // button1
+            // btnValidate
             // 
-            this.button1.Location = new System.Drawing.Point(161, 122);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 34);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnValidate.Location = new System.Drawing.Point(161, 122);
+            this.btnValidate.Name = "btnValidate";
+            this.btnValidate.Size = new System.Drawing.Size(112, 34);
+            this.btnValidate.TabIndex = 1;
+            this.btnValidate.Text = "Validate";
+            this.btnValidate.UseVisualStyleBackColor = true;
             // 
             // frmRijksregisterNummer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 177);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnValidate);
             this.Controls.Add(this.txtRijksregisternummer);
             this.Name = "frmRijksregisterNummer";
             this.Text = "Rijksregisternummer";
@@ -77,7 +77,7 @@ namespace ExtraOefeningRijksRegisterNummer
 
         private System.Windows.Forms.TextBox txtRijksregisternummer;
         private System.Windows.Forms.ErrorProvider epRijksregisternummer;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnValidate;
     }
 }
 
