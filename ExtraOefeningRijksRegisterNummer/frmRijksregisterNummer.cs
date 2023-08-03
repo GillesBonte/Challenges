@@ -19,6 +19,9 @@ namespace ExtraOefeningRijksRegisterNummer
 
         private void txtRijksregisternummer_Validating(object sender, CancelEventArgs e)
         {
+            //clear current/old error first
+            epRijksregisternummer.Clear();
+
             if (txtRijksregisternummer.Text == "")
             {
                 epRijksregisternummer.SetError(txtRijksregisternummer, "Enter something");
