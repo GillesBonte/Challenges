@@ -22,10 +22,9 @@ namespace ExtraOefeningRijksRegisterNummer
             //clear current/old error first
             epRijksregisternummer.Clear();
 
-            if (txtRijksregisternummer.Text == "")
-            {
-                epRijksregisternummer.SetError(txtRijksregisternummer, "Enter something");
-            }
+            //checks
+
+            //
 
         }
 
