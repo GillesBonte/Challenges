@@ -48,9 +48,22 @@ namespace ExtraOefeningRijksRegisterNummer
             }
 
             //the textbox can only contain a certain amount of characters
-            if(txtRijksregisternummer.Text.Length > 15)
+            if(txtRijksregisternummer.Text.Length >= 15)
             {
                 e.Handled = true;
+            }
+
+            //automatically add a '.' at the designated positions - don't do this when the input was a backspace
+            if ((txtRijksregisternummer.Text.Length == 2 || txtRijksregisternummer.Text.Length == 5 || txtRijksregisternummer.Text.Length == 12) && e.KeyChar != '\b')
+            {
+                txtRijksregisternummer.Text += ".";
+                txtRijksregisternummer.SelectionStart = txtRijksregisternummer.Text.Length;
+            }
+
+            //automatically add a '-' at the designated positions - don't do this when the input was a backspace
+            if (txtRijksregisternummer.Text.Length == 8 && e.KeyChar != '\b')
+            {
+                txtRijksregisternummer.Text += "-";
             }
 
         }
