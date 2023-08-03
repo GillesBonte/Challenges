@@ -22,9 +22,10 @@ namespace ExtraOefeningRijksRegisterNummer
             //clear current/old error first
             epRijksregisternummer.Clear();
 
-            //checks
+            foreach (ICheck check in CheckList )
+            {
 
-            //
+            }
 
         }
 
