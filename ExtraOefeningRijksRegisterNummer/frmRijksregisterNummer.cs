@@ -22,8 +22,17 @@ namespace ExtraOefeningRijksRegisterNummer
             //clear current/old error first
             epRijksregisternummer.Clear();
 
-            foreach (ICheck check in CheckList )
+            //define Checklist
+            CheckList clChecks = new CheckList();
+
+            //run through all checks until one fails & show the errormessage on the errorpanel
+            foreach (ICheck check in clChecks.ListOfChecks)
             {
+                if (!check.Check())
+                {
+                    epRijksregisternummer.SetError(txtRijksregisternummer, check.ErrorMessage());
+                    break;
+                }
 
             }
 
