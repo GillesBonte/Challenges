@@ -6,11 +6,8 @@ namespace ExtraOefeningRijksRegisterNummer
 {
     public interface ICheck
     {
-        public void Check()
-        {
-
-        }
-        
+        public bool Check();
+        public string ErrorMessage();  
     }
 
 }
