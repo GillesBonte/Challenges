@@ -42,6 +42,7 @@ namespace ExtraOefeningRijksRegisterNummer
             this.txtRijksregisternummer.Name = "txtRijksregisternummer";
             this.txtRijksregisternummer.Size = new System.Drawing.Size(288, 31);
             this.txtRijksregisternummer.TabIndex = 0;
+            this.txtRijksregisternummer.TextChanged += new System.EventHandler(this.txtRijksregisternummer_TextChanged);
             this.txtRijksregisternummer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRijksregisternummer_KeyPress);
             this.txtRijksregisternummer.Validating += new System.ComponentModel.CancelEventHandler(this.txtRijksregisternummer_Validating);
             // 

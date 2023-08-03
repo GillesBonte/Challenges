@@ -41,7 +41,7 @@ namespace ExtraOefeningRijksRegisterNummer
         private void txtRijksregisternummer_KeyPress(object sender, KeyPressEventArgs e)
         {
             //only certain characters can be entered in the textbox
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != '\u007F' && e.KeyChar != '\u002D' && e.KeyChar != '\u002E')
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != '\u007F')
             {
                 // If the key is not a digit, Backspace, or Delete, suppress the key event (prevent the character from being entered).
                 e.Handled = true;
@@ -53,6 +53,37 @@ namespace ExtraOefeningRijksRegisterNummer
                 e.Handled = true;
             }
 
+        }
+
+        private void txtRijksregisternummer_TextChanged(object sender, EventArgs e)
+        {
+            OnlyAddValidCharacters();
+        }
+
+        private void OnlyAddValidCharacters()
+        {
+            // Get the text from the textbox
+            string textBoxText = txtRijksregisternummer.Text;
+
+            // Create a StringBuilder to store the filtered characters
+            StringBuilder filteredText = new StringBuilder();
+
+            // Loop through each character in the textbox text
+            foreach (char c in textBoxText)
+            {
+                // Check if the character is a digit, backspace, delete, hyphen, or period
+                if (char.IsDigit(c) || c == '\b' || c == '\u007F' || c == '\u002D' || c == '\u002E')
+                {
+                    // If it's an allowed character, add it to the filteredText
+                    filteredText.Append(c);
+                }
+            }
+
+            // Update the textbox text with the filtered text
+            txtRijksregisternummer.Text = filteredText.ToString();
+
+            // Set the cursor position to the end of the textbox
+            txtRijksregisternummer.SelectionStart = txtRijksregisternummer.Text.Length;
         }
 
     }
