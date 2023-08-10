@@ -57,10 +57,11 @@ namespace ExtraOefeningRijksRegisterNummer
 
         private void txtRijksregisternummer_TextChanged(object sender, EventArgs e)
         {
+            //check all characters on being valid (we need to do this again in case of copy/paste)
             OnlyAddValidCharacters();
         }
 
-        //method to check all characters being #/del/backspace, even/especially on copy/paste
+        //method to check all characters being #/del/backspace
         private void OnlyAddValidCharacters()
         {
             // Get the text from the textbox
