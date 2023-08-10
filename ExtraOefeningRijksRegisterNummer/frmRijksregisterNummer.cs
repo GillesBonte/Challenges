@@ -59,6 +59,8 @@ namespace ExtraOefeningRijksRegisterNummer
         {
             //check all characters on being valid (we need to do this again in case of copy/paste)
             OnlyAddValidCharacters();
+
+            AddExtraCharacterAtDesignatedLocation();
         }
 
         //method to check all characters being #/del/backspace
@@ -86,6 +88,12 @@ namespace ExtraOefeningRijksRegisterNummer
 
             // Set the cursor position to the end of the textbox
             txtRijksregisternummer.SelectionStart = txtRijksregisternummer.Text.Length;
+        }
+
+        //method to add extra characters at designated locations
+        private void AddExtraCharacterAtDesignatedLocation()
+        {
+
         }
 
     }
