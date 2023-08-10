@@ -71,8 +71,8 @@ namespace ExtraOefeningRijksRegisterNummer
             // Loop through each character in the textbox text
             foreach (char c in textBoxText)
             {
-                // Check if the character is a digit, backspace, delete, hyphen, or period
-                if (char.IsDigit(c) || c == '\b' || c == '\u007F' || c == '\u002D' || c == '\u002E')
+                // Check if the character is a digit, backspace, delete
+                if (char.IsDigit(c) || c == '\b' || c == '\u007F')
                 {
                     // If it's an allowed character, add it to the filteredText
                     filteredText.Append(c);
