@@ -19,22 +19,22 @@ namespace ExtraOefeningRijksRegisterNummer
 
         private void txtRijksregisternummer_Validating(object sender, CancelEventArgs e)
         {
-            //clear current/old error first
-            epRijksregisternummer.Clear();
+            ////clear current/old error first
+            //epRijksregisternummer.Clear();
 
-            //define Checklist
-            CheckList clChecks = new CheckList();
+            ////define Checklist
+            //CheckList clChecks = new CheckList();
 
-            //run through all checks until one fails & show the errormessage on the errorpanel
-            foreach (ICheck check in clChecks.ListOfChecks)
-            {
-                if (!check.Check())
-                {
-                    epRijksregisternummer.SetError(txtRijksregisternummer, check.ErrorMessage());
-                    break;
-                }
+            ////run through all checks until one fails & show the errormessage on the errorpanel
+            //foreach (ICheck check in clChecks.ListOfChecks)
+            //{
+            //    if (!check.Check())
+            //    {
+            //        epRijksregisternummer.SetError(txtRijksregisternummer, check.ErrorMessage());
+            //        break;
+            //    }
 
-            }
+            //}
 
         }
 
@@ -51,19 +51,6 @@ namespace ExtraOefeningRijksRegisterNummer
             if(txtRijksregisternummer.Text.Length >= 15)
             {
                 e.Handled = true;
-            }
-
-            //automatically add a '.' at the designated positions - don't do this when the input was a backspace
-            if ((txtRijksregisternummer.Text.Length == 2 || txtRijksregisternummer.Text.Length == 5 || txtRijksregisternummer.Text.Length == 12) && e.KeyChar != '\b')
-            {
-                txtRijksregisternummer.Text += ".";
-                txtRijksregisternummer.SelectionStart = txtRijksregisternummer.Text.Length;
-            }
-
-            //automatically add a '-' at the designated positions - don't do this when the input was a backspace
-            if (txtRijksregisternummer.Text.Length == 8 && e.KeyChar != '\b')
-            {
-                txtRijksregisternummer.Text += "-";
             }
 
         }
