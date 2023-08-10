@@ -60,6 +60,7 @@ namespace ExtraOefeningRijksRegisterNummer
             OnlyAddValidCharacters();
         }
 
+        //method to check all characters being #/del/backspace, even/especially on copy/paste
         private void OnlyAddValidCharacters()
         {
             // Get the text from the textbox
