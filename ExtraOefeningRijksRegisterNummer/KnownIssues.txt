@@ -1,0 +1,2 @@
+﻿copy/pasting a '.' or a '-' on the wrong location gets filtered out correctly,
+it doesn't trigger an error
