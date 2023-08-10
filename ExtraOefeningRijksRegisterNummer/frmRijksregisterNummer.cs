@@ -93,11 +93,11 @@ namespace ExtraOefeningRijksRegisterNummer
                     }
 
                 }
-                else if(c == '\u002D' || c == '\u002E')
+                else if(c == '\u002D' || c == '\u002E') // do nothing when '.' or '-' have been copy/pasted
                 {
 
                 }
-                else
+                else //show error when any other input has been copy/pasted
                 {
                     epRijksregisternummer.SetError(txtRijksregisternummer, "Faulty input has been filtered out.");
                 }
