@@ -93,6 +93,10 @@ namespace ExtraOefeningRijksRegisterNummer
                     }
 
                 }
+                else
+                {
+                    epRijksregisternummer.SetError(txtRijksregisternummer, "Faulty input has been filtered out");
+                }
 
             }
 
