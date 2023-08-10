@@ -57,57 +57,68 @@ namespace ExtraOefeningRijksRegisterNummer
 
         private void txtRijksregisternummer_TextChanged(object sender, EventArgs e)
         {
+            //disable the TextChanged temporary
+            txtRijksregisternummer.TextChanged -= txtRijksregisternummer_TextChanged;
             //check all characters on being valid (we need to do this again in case of copy/paste)
             OnlyAddValidCharacters();
+            //Add extra characters where needed
+            AddExtraCharacterAtDesignatedLocation();
+            // Set the cursor position to the end of the textbox
+            txtRijksregisternummer.SelectionStart = txtRijksregisternummer.Text.Length;
+            //reactivate the TextChanged
+            txtRijksregisternummer.TextChanged += txtRijksregisternummer_TextChanged;
 
-            AddExtraCharacterAtDesignatedLocation(new int[] {2, 5, 12} , ".");
-            AddExtraCharacterAtDesignatedLocation(new int[] {8}, "-");
         }
 
         //method to check all characters being #/del/backspace
         private void OnlyAddValidCharacters()
         {
             // Get the text from the textbox
-            string textBoxText = txtRijksregisternummer.Text;
+            string strBoxText = txtRijksregisternummer.Text;
 
             // Create a StringBuilder to store the filtered characters
             StringBuilder filteredText = new StringBuilder();
 
             // Loop through each character in the textbox text
-            foreach (char c in textBoxText)
+            foreach (char c in strBoxText)
             {
                 // Check if the character is a digit, backspace, delete
-                if (char.IsDigit(c) || c == '\b' || c == '\u007F' || c == '\u002D' || c == '\u002E')
-                {
-                    // If it's an allowed character, add it to the filteredText
-                    filteredText.Append(c);
+                if (char.IsDigit(c) || c == '\b' || c == '\u007F')
+                { 
+
+                    if (filteredText.Length < 11)
+                    {
+                        // If it's an allowed character, add it to the filteredText
+                        filteredText.Append(c);
+                    }
+
                 }
             }
 
             // Update the textbox text with the filtered text
             txtRijksregisternummer.Text = filteredText.ToString();
 
-            // Set the cursor position to the end of the textbox
-            txtRijksregisternummer.SelectionStart = txtRijksregisternummer.Text.Length;
         }
 
         //method to add extra characters at designated locations
-        private void AddExtraCharacterAtDesignatedLocation(int[] intLocationIndex, string strCharacter)
+        private void AddExtraCharacterAtDesignatedLocation()
         {
             string strInput = txtRijksregisternummer.Text;
+            int intInputLength = strInput.Length;
 
-            foreach (int intIndex in intLocationIndex)
+            if (intInputLength > 0)
             {
-
-                if (strInput.Length > intIndex && strInput.Length <= intIndex+1)
-                {
-                    strInput = strInput.Insert(intIndex, strCharacter);
-                    txtRijksregisternummer.Text = strInput;
-                }
-
+                if (intInputLength >= 2)
+                    strInput = strInput.Insert(2, ".");
+                if (intInputLength >= 4)
+                    strInput = strInput.Insert(5, ".");
+                if (intInputLength >= 6)
+                    strInput = strInput.Insert(8, "-");
+                if (intInputLength >= 9)
+                    strInput = strInput.Insert(12, ".");
             }
 
-            
+            txtRijksregisternummer.Text = strInput;
         }
 
     }
