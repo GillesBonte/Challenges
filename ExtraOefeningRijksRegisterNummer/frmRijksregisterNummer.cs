@@ -43,7 +43,7 @@ namespace ExtraOefeningRijksRegisterNummer
             //only certain characters can be entered in the textbox
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != '\u007F')
             {
-                // If the key is not a digit, Backspace, or Delete, suppress the key event (prevent the character from being entered).
+                // If the key is not a digit, Backspace, or Delete, prevent the character from being entered.
                 e.Handled = true;
             }
 
