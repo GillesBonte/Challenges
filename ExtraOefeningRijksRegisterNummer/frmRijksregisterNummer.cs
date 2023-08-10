@@ -60,7 +60,8 @@ namespace ExtraOefeningRijksRegisterNummer
             //check all characters on being valid (we need to do this again in case of copy/paste)
             OnlyAddValidCharacters();
 
-            AddExtraCharacterAtDesignatedLocation();
+            AddExtraCharacterAtDesignatedLocation(new int[] {2, 5, 12} , ".");
+            AddExtraCharacterAtDesignatedLocation(new int[] {8}, "-");
         }
 
         //method to check all characters being #/del/backspace
@@ -76,7 +77,7 @@ namespace ExtraOefeningRijksRegisterNummer
             foreach (char c in textBoxText)
             {
                 // Check if the character is a digit, backspace, delete
-                if (char.IsDigit(c) || c == '\b' || c == '\u007F')
+                if (char.IsDigit(c) || c == '\b' || c == '\u007F' || c == '\u002D' || c == '\u002E')
                 {
                     // If it's an allowed character, add it to the filteredText
                     filteredText.Append(c);
@@ -91,9 +92,22 @@ namespace ExtraOefeningRijksRegisterNummer
         }
 
         //method to add extra characters at designated locations
-        private void AddExtraCharacterAtDesignatedLocation()
+        private void AddExtraCharacterAtDesignatedLocation(int[] intLocationIndex, string strCharacter)
         {
+            string strInput = txtRijksregisternummer.Text;
 
+            foreach (int intIndex in intLocationIndex)
+            {
+
+                if (strInput.Length > intIndex && strInput.Length <= intIndex+1)
+                {
+                    strInput = strInput.Insert(intIndex, strCharacter);
+                    txtRijksregisternummer.Text = strInput;
+                }
+
+            }
+
+            
         }
 
     }
