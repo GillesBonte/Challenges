@@ -40,7 +40,7 @@ namespace ExtraOefeningRijksRegisterNummer
 
         private void txtRijksregisternummer_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //only certain characters can be entered in the textbox
+            //only certain characters (#/del/backspace) can be entered in the textbox
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != '\u007F')
             {
                 // If the key is not a digit, Backspace, or Delete, prevent the character from being entered.
