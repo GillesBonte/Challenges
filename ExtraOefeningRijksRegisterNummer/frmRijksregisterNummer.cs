@@ -112,9 +112,11 @@ namespace ExtraOefeningRijksRegisterNummer
         //method to add extra characters at designated locations
         private void AddExtraCharacterAtDesignatedLocation()
         {
+            //define input & inputlength
             string strInput = txtRijksregisternummer.Text;
             int intInputLength = strInput.Length;
 
+            //put the right character at designated locations in the string
             if (intInputLength > 0)
             {
                 if (intInputLength >= 2)
@@ -127,6 +129,7 @@ namespace ExtraOefeningRijksRegisterNummer
                     strInput = strInput.Insert(12, ".");
             }
 
+            //put string back in textbox
             txtRijksregisternummer.Text = strInput;
         }
 
